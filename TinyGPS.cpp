@@ -63,6 +63,8 @@ bool TinyGPS::encode(char c)
 #ifndef _GPS_NO_STATS
   ++_encoded_characters;
 #endif  
+
+//  Serial.write(c);
   switch(c)
   {
   case ',': // term terminators

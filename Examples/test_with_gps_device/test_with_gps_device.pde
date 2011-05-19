@@ -18,7 +18,7 @@ void setup()
 {
   Serial.begin(115200);
   nss = &Serial1;
-  nss->begin(38400);
+  nss->begin(9600);
   
   Serial.print("Testing TinyGPS library v. "); Serial.println(TinyGPS::library_version());
   Serial.println("by Mikal Hart");
@@ -102,6 +102,7 @@ void gpsdump(TinyGPS &gps)
   gps.f_get_position(&flat, &flon, &age);
   Serial.print("Lat/Long(float): "); printFloat(flat, 5); Serial.print(", "); printFloat(flon, 5);
   Serial.print(" Fix age: "); Serial.print(age); Serial.println("ms.");
+  Serial.print("Number of Sats: "); Serial.print(gps.getSats(), DEC); Serial.print(" GPS Fix type: "); Serial.println(gps.fix(), DEC);
 
   feedgps();
 
